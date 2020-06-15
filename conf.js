@@ -1,23 +1,25 @@
 // conf.js
 exports.config = {
-  directConnect: true,
+  directConnect: false,
+  SELENIUM_PROMISE_MANAGER: false,
+  
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
-    'browserName': 'chrome',
-    'browserName': 'firefox'
-
+    'browserName': 'chrome'
   },
 
   framework: 'jasmine',
   seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: ['spec.js'],
-  onPrepare: function () {
-    console.log('Tests are started')
+  onPrepare: async function () {
+    console.log('Tests are started');
+    browser.waitForAngularEnabled(false);
+    
 
   },
   params: {
-      a: '3',
-      b: '4'
+      a: 'viktoriasynytsa@gmail.com',
+      b: '1234567890'
     }
 }
