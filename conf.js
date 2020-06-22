@@ -7,11 +7,12 @@ exports.config = {
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
     'browserName': 'chrome'
+  
   },
 
   framework: 'jasmine',
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['spec.js'],
+  //seleniumAddress: 'http://localhost:4444/wd/hub',
+  specs: ['./specs/spec.js'],
   onPrepare: async function () {
     console.log('Tests are started');
     browser.waitForAngularEnabled(false);
@@ -19,7 +20,7 @@ exports.config = {
 
   },
   params: {
-      a: 'viktoriasynytsa@gmail.com',
-      b: '1234567890'
+      a: "viktoriasynytsa@gmail.com",
+      b: "1234567890"
     }
 }
