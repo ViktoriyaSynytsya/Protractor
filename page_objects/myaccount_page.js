@@ -1,8 +1,7 @@
+let BasePage = require ("../base/base.page")
 
-class MyAccountPage {
-    async getTitle() {
-        expect(await browser.getTitle()).toEqual('My account - My Store');
-    }
+class MyAccountPage extends BasePage {
+
 }
 
 module.exports = new MyAccountPage();

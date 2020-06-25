@@ -1,18 +1,28 @@
-let email = by.css('#email')
-let password = by.css('#passwd')
-let submitbtn = by.css('#SubmitLogin')
+// const { element } = require("protractor");
+let BasePage = require ("../base/base.page")
 
-class LoginPage {
-    async getTitle() {
-        await browser.sleep(2000);
-        expect(await browser.getTitle()).toEqual('Login - My Store');
-    }
-    async login() {
-        await element(email).sendKeys(browser.params.a);
-        await element(password).sendKeys(browser.params.b);
-        await element(submitbtn).click();
-    } 
+let emailLocator = by.css('#email')
+let passwordLocator = by.css('#passwd')
+let submitbtnLocator = by.css('#SubmitLogin')
+
+class LoginPage extends BasePage {
     
+    async login (email,password) {
+        await this.getEmailInput().sendKeys(email);
+        await this.getPassInput().sendKeys(password);
+        await this.getSubmButInput().click();
+    } 
+    getEmailInput() {
+        return element(emailLocator);
+    }
+
+    getPassInput() {
+        return element(passwordLocator);
+    }
+
+    getSubmButInput() {
+        return element(submitbtnLocator);
+    }
 }
 
 module.exports = new LoginPage();

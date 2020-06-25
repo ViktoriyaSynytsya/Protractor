@@ -8,7 +8,7 @@
 //         expect(await element(by.binding('latest')).getText());
 //         expect(await element(by.binding('latest')).getText()).toEqual('7');
 
-const { browser } = require("protractor");
+// const { browser } = require("protractor");
 
 //     });
 // });
@@ -28,17 +28,17 @@ const { browser } = require("protractor");
 //     });
 // });
 
-let indexPage = require("../page_objects/index_page")
+let indexPage = require ("../page_objects/index_page")
 let loginPage = require ("../page_objects/login_page")
-let myaccountPage = require ("../page_objects/myaccount_page")
+let myAccountPage = require ("../page_objects/myAccount_page")
 
 describe('Protractor Demo App Login', function () {
     it('should click login', async function () {
         await indexPage.open();
         await indexPage.navigateToLoginPage(); 
-        await loginPage.getTitle();
-        await loginPage.login();
-        await myaccountPage.getTitle();
+        expect(await loginPage.getTitle()).toEqual('Login - My Store');
+        await loginPage.login(browser.params.a, browser.params.b);
+        expect(await myAccountPage.getTitle()).toEqual('My account - My Store');
 
     });
 });

@@ -1,3 +1,5 @@
+//const { browser } = require("protractor");
+
 // conf.js
 exports.config = {
   directConnect: false,
@@ -16,6 +18,7 @@ exports.config = {
   onPrepare: async function () {
     console.log('Tests are started');
     browser.waitForAngularEnabled(false);
+    browser.manage().timeouts().implicitlyWait(4000);
     
 
   },
