@@ -18,7 +18,7 @@ exports.config = {
   onPrepare: async function () {
     console.log('Tests are started');
     browser.waitForAngularEnabled(false);
-    browser.manage().timeouts().implicitlyWait(4000);
+    //browser.manage().timeouts().implicitlyWait(4000);
     
 
   },

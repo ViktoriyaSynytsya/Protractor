@@ -35,7 +35,9 @@ let myAccountPage = require ("../page_objects/myAccount_page")
 describe('Protractor Demo App Login', function () {
     it('should click login', async function () {
         await indexPage.open();
+        await indexPage.waitForPageLoaded();
         await indexPage.navigateToLoginPage(); 
+        await loginPage.waitForPageLoaded();
         expect(await loginPage.getTitle()).toEqual('Login - My Store');
         await loginPage.login(browser.params.a, browser.params.b);
         expect(await myAccountPage.getTitle()).toEqual('My account - My Store');
