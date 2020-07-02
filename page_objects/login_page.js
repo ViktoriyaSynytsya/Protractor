@@ -1,9 +1,11 @@
 // const { element } = require("protractor");
 let Input = require("../elements/input.element")
-
 let Button = require("../elements/button.element")
+let TextView = require("../elements/text.view")
 
 let BasePage = require ("../base/base.page")
+
+
 
 let emailLocator = by.css('#email');
 let passwordLocator = by.css('#passwd');
@@ -29,7 +31,7 @@ class LoginPage extends BasePage {
     getSubmButInput() {
         return new Button(element(submitbtnLocator), 'Submit');
     }
-    getBaselement() {
+    getBaseElement() {
         return  new TextView(element(textloginLocator), 'Login page base element');
     }
     

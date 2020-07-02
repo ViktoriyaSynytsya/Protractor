@@ -17,8 +17,8 @@ class IndexPage extends BasePage {
     getLoginBtnElement() {
         return  new Button(element(loginBtnLocator), 'Sign In');
     }
-    getBaselement() {
-        return  new Button(element(loginBtnLocator), 'Index page base element');
+    getBaseElement() {
+        return  new TextView(element(loginBtnLocator), 'Index page base element');
     }
     
 }

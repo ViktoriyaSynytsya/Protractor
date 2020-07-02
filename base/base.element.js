@@ -4,15 +4,15 @@ class BaseElement {
     constructor(protractorElement, nameElement) {
         this.protractorElement = protractorElement;
         this.nameElement = nameElement;
-        this.expectedConditions = protractor.expectedConditions;
+        this.expectedConditions = protractor.ExpectedConditions;
     }
     async click() {
         console.log(`Clicking on ${this.elementName}`);
         await this.protractorElement.click();
     }
-    async sendKeys() {
+    async sendKeys(text) {
         console.log(`Sending keys [${text}] to "${this.elementName}"`);
-        await this.protractorElement.sendKeys();
+        await this.protractorElement.sendKeys(text);
     }
     async getText() {
         console.log(`Show text "${this.elementName}"`);

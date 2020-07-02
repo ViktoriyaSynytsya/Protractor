@@ -1,6 +1,6 @@
 class BasePage {
     async waitForPageLoaded() {
-        await this.getBaselement().waitForPresence();
+        await this.getBaseElement().waitForPresence();
     }
     async open(url) {
         await browser.get(url);
