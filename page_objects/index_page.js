@@ -12,14 +12,18 @@ class IndexPage extends BasePage {
     }
   
     async navigateToLoginPage() {
+        await allure.createStep(`Navigate to login page`, async () => {
         await this.getLoginBtnElement().click();
-    }
+    })();}
+
     getLoginBtnElement() {
         return  new Button(element(loginBtnLocator), 'Sign In');
-    }
+    };
+
     getBaseElement() {
         return  new TextView(element(loginBtnLocator), 'Index page base element');
     }
+    
     
 }
 

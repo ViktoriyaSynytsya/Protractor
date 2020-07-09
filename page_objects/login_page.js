@@ -14,11 +14,17 @@ let textloginLocator = by.css('#login_form>.page-subheading');
 
 
 class LoginPage extends BasePage {
+
+   
     
     async login (email,password) {
-        await this.getEmailInput().sendKeys(email);
-        await this.getPassInput().sendKeys(password);
-        await this.getSubmButInput().click();
+        await allure.createStep(`Logging in ${email} / ${password}`, async () => {
+            await this.getEmailInput().sendKeys(email);
+            await this.getPassInput().sendKeys(password);
+            await this.getSubmButInput().click();
+
+        })();
+     
     } 
     getEmailInput() {
         return new Input(element(emailLocator), 'email');
