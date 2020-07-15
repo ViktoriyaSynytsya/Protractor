@@ -16,7 +16,9 @@ exports.config = {
 
   framework: 'jasmine',
   //seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['./specs/spec.js'],
+  specs: //['./specs/login_successful_spec.js'],
+  ['./specs/Unsuccessful login/unsuccessful_login_spec.js'],
+
   onPrepare: async function () {
     console.log('Tests are started');
     browser.waitForAngularEnabled(false);

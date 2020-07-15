@@ -9,6 +9,11 @@ class BasePage {
         return await browser.getTitle();
         
     }
+    async getText() {
+        return await browser.getText();
+        
+    }
+   
 }
 
 module.exports = BasePage
