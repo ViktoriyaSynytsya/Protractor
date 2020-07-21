@@ -11,7 +11,7 @@ let emailLocator = by.css('#email');
 let passwordLocator = by.css('#passwd');
 let submitbtnLocator = by.css('#SubmitLogin');
 let textloginLocator = by.css('#login_form>.page-subheading');
-let errorpassword = by.xpath('//*[.="Password is required."]')
+let errorpassword = by.css('.alert li')
 
 
 class LoginPage extends BasePage {
@@ -23,12 +23,16 @@ class LoginPage extends BasePage {
             await this.getEmailInput().sendKeys(email);
             await this.getPassInput().sendKeys(password);
             await this.getSubmButInput().click();
-            await this.getErrorElement().waitForPresence();
+            
 
-        })();
+        })()
+    }
 
-     
-    } 
+    async error () {
+        return await this.getErrorElement().getText();
+    
+    }   
+
     getEmailInput() {
         return new Input(element(emailLocator), 'email');
     }
@@ -43,11 +47,17 @@ class LoginPage extends BasePage {
     getBaseElement() {
         return  new TextView(element(textloginLocator), 'Login page base element');
     }
+    
     getErrorElement() {
         return  new TextView(element(errorpassword), 'Password is required error');
     }
+    
+
 
 
 }
+
+
+
 
 module.exports = new LoginPage();
