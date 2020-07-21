@@ -11,7 +11,7 @@ describe('Protractor Demo App Login', function () {
         await loginPage.waitForPageLoaded();
         expect(await loginPage.getTitle()).toEqual('Login - My Store');
         await loginPage.login("viktoriasynytsa@gmail.com", "");
-        expect(await loginPage.getText()).toEqual('Password is required.');
+        expect(await loginPage.error()).toEqual('Password is required.');
 
     });
 });
