@@ -5,8 +5,6 @@ let TextView = require("../elements/text.view")
 
 let BasePage = require ("../base/base.page")
 
-
-
 let emailLocator = by.css('#email');
 let passwordLocator = by.css('#passwd');
 let submitbtnLocator = by.css('#SubmitLogin');
@@ -14,17 +12,12 @@ let textloginLocator = by.css('#login_form>.page-subheading');
 let errorpassword = by.css('.alert li')
 
 
-class LoginPage extends BasePage {
-
-   
-    
+class LoginPage extends BasePage {   
     async login (email,password) {
         await allure.createStep(`Logging in ${email} / ${password}`, async () => {
             await this.getEmailInput().sendKeys(email);
             await this.getPassInput().sendKeys(password);
             await this.getSubmButInput().click();
-            
-
         })()
     }
 
@@ -49,7 +42,7 @@ class LoginPage extends BasePage {
     }
     
     getErrorElement() {
-        return  new TextView(element(errorpassword), 'Password is required error');
+        return  new TextView(element(errorpassword), 'Error about unsuccessful login');
     }
     
 

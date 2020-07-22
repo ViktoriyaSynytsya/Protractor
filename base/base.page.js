@@ -9,8 +9,6 @@ class BasePage {
         return await browser.getTitle();
         
     }
-
-   
 }
 
 module.exports = BasePage

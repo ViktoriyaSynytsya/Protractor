@@ -5,7 +5,6 @@ class Input extends BaseElement {
         console.log(`Sending keys [${text}] to "${this.elementName}"`);
         await this.protractorElement.sendKeys(text);
     }
- 
 }
 
 module.exports = Input;

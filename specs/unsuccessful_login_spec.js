@@ -12,6 +12,9 @@ describe('Protractor Demo App Login', function () {
         expect(await loginPage.getTitle()).toEqual('Login - My Store');
         await loginPage.login("viktoriasynytsa@gmail.com", "");
         expect(await loginPage.error()).toEqual('Password is required.');
-
+        await loginPage.login("viktoriasynytsa@gmail.com", "1234567");
+        expect(await loginPage.error()).toEqual('Authentication failed.');
+        await loginPage.login("viktoriasynytsagmail.com", "1234567");
+        expect(await loginPage.error()).toEqual('Invalid email address.');
     });
 });
