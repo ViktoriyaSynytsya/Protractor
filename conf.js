@@ -18,6 +18,9 @@ exports.config = {
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: //['./specs/login_successful_spec.js'],
   ['./specs/unsuccessful_login_spec.js'],
+  jasmineNodeOpts: {
+    defaultTimeoutInterval: 90000
+  },
 
   onPrepare: async function () {
     console.log('Tests are started');

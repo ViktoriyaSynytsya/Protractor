@@ -26,6 +26,11 @@ class LoginPage extends BasePage {
     
     }   
 
+    async clearText () {
+         await this.getEmailInput().clear();
+         await this.getPassInput().clear();
+    }
+
     getEmailInput() {
         return new Input(element(emailLocator), 'email');
     }
