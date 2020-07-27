@@ -10,7 +10,6 @@ class BaseElement {
         console.log(`Clicking on ${this.elementName}`);
         await this.protractorElement.click();
     }
-    
     async getText() {
         console.log(`Show text "${this.elementName}"`);
         return await this.protractorElement.getText();

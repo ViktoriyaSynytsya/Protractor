@@ -1,19 +1,12 @@
-//const { browser } = require("protractor");
-
-
-
 // conf.js
 exports.config = {
   directConnect: false,
   SELENIUM_PROMISE_MANAGER: false,
-
-
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
     'browserName': 'chrome'
 
   },
-
   framework: 'jasmine',
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: //['./specs/login_successful_spec.js'],
@@ -35,14 +28,11 @@ exports.config = {
 
     });
   },
-
   params: {
     a: "viktoriasynytsa@gmail.com",
     b: "1234567890"
   }
 }
-
-
 async function createScreenShotAllure() {
   let screenshotFile = await browser.takeScreenshot();
   await allure.createAttachment('Screenshot', function () {
