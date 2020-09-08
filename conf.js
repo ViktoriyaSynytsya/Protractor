@@ -30,7 +30,17 @@ exports.config = {
   },
   params: {
     a: "viktoriasynytsa@gmail.com",
-    b: "1234567890"
+    password: "1234567890",
+    firstName: "Viktoriya",
+    lastName: "Synytsya",
+    firstNameAdd: "Viktoriya2",
+    lastNameAdd: "Synytsya2",
+    address: "Demnyanska St.",
+    city: "Lviv",
+    zipcode: "23456",
+    mobPhone: "380677543321",
+    alias: "Naukova St."
+
   }
 }
 async function createScreenShotAllure() {
