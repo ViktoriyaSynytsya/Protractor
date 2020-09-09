@@ -11,6 +11,8 @@ exports.config = {
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: //['./specs/login_successful_spec.js'],
   ['./specs/registration_spec.js'],
+ // ['./test_random.js'],
+
   jasmineNodeOpts: {
     defaultTimeoutInterval: 90000
   },
@@ -37,7 +39,9 @@ exports.config = {
     lastNameAdd: "Synytsya2",
     address: "Demnyanska St.",
     city: "Lviv",
+    state: "Hawaii",
     zipcode: "23456",
+    country: "United States",
     mobPhone: "380677543321",
     alias: "Naukova St."
 

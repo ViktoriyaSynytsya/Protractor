@@ -1,6 +1,3 @@
-// const { element } = require("protractor");
-const random = require("../node_modules/random-js").Random;
-
 let Input = require("../elements/input.element")
 let Button = require("../elements/button.element")
 let TextView = require("../elements/text.view")
@@ -42,24 +39,8 @@ class LoginPage extends BasePage {
         })()
     }
 
-    getRandomEmail() {
-        return this.getRandomString(12);
-    }
-
-    getRandomString(characterLength) {
-        let randomText = "";
-        let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        for (let i = 0; i < characterLength; i++)
-            randomText += possible.charAt(Math.floor(Math.random() * possible.length));
-        return randomText + '@gmail.com';
-    }
-
     async getErrorMessage() {
         return await this.getErrorElement().getText();
-    }
-    async clearCredentials() {
-        await this.getEmailInput().clear();
-        await this.getPassInput().clear();
     }
 
     async sendEmail(email) {
@@ -67,7 +48,6 @@ class LoginPage extends BasePage {
             await this.getEmailInputForReg().sendKeys(email);
         })()
     }
-
     async createAnAccout() {
         await this.getSubmButForRegInput().click();
     }
@@ -84,7 +64,7 @@ class LoginPage extends BasePage {
     
 
     async registrationForm(firstName, lastName, password, firstNameAdd,
-        lastNameAdd, address, city, zipcode, mobPhone, alias) {
+        lastNameAdd, address, city, state, zipcode, country, mobPhone, alias) {
         await allure.createStep(`Register in ${password}`, async () => {
             await this.getFirstNameInputForReg().sendKeys(firstName);
             await this.getLastNameInputForReg().sendKeys(lastName);
@@ -94,11 +74,11 @@ class LoginPage extends BasePage {
             await this.getAddressInputForReg().sendKeys(address);
             await this.getCityInputForReg().sendKeys(city);
             await this.getStateDropdownForReg().open();
-            await this.getStateDropdownForReg().selectItem('Hawaii');
+            await this.getStateDropdownForReg().selectItem(state);
             await browser.sleep(3000);
             await this.getPostCodeInputForReg().sendKeys(zipcode);
             await this.getCountryDropdownForReg().open();
-            await this.getCountryDropdownForReg().selectItem('United States');
+            await this.getCountryDropdownForReg().selectItem(country);
             await this.getMobilePhoneInputForReg().sendKeys(mobPhone);
             await this.getAddAliasInputForReg().clear();
             await this.getAddAliasInputForReg().sendKeys(alias);
