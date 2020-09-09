@@ -10,7 +10,6 @@ class Dropdown extends BaseElement {
         new Button(element(by.xpath(`//option[contains(text(), "${optionText}")]`)), 'Option').click();
         
     };
-    
 }
 
 module.exports = Dropdown;

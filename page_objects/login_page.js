@@ -26,7 +26,6 @@ let countryLocator = by.css('#id_country')
 let mobileLocator = by.css('#phone_mobile')
 let addressAliasLocator = by.css('#alias')
 
-
 let regForm = by.xpath('//label[.="Title"]')
 let successfulReg = by.css('.info-account')
 
@@ -38,11 +37,9 @@ class LoginPage extends BasePage {
             await this.getSubmButInput().click();
         })()
     }
-
     async getErrorMessage() {
         return await this.getErrorElement().getText();
     }
-
     async sendEmail(email) {
         await allure.createStep(`Sign in ${email}`, async () => {
             await this.getEmailInputForReg().sendKeys(email);
@@ -51,7 +48,6 @@ class LoginPage extends BasePage {
     async createAnAccout() {
         await this.getSubmButForRegInput().click();
     }
-
     async getTextFromRegisterForm() {
         await this.getBaseElementForReg().click();
     }
@@ -62,7 +58,6 @@ class LoginPage extends BasePage {
         return await this.getTextforExpect().getText();
     }
     
-
     async registrationForm(firstName, lastName, password, firstNameAdd,
         lastNameAdd, address, city, state, zipcode, country, mobPhone, alias) {
         await allure.createStep(`Register in ${password}`, async () => {
@@ -75,7 +70,6 @@ class LoginPage extends BasePage {
             await this.getCityInputForReg().sendKeys(city);
             await this.getStateDropdownForReg().open();
             await this.getStateDropdownForReg().selectItem(state);
-            await browser.sleep(3000);
             await this.getPostCodeInputForReg().sendKeys(zipcode);
             await this.getCountryDropdownForReg().open();
             await this.getCountryDropdownForReg().selectItem(country);

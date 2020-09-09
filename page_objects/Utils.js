@@ -8,7 +8,6 @@ class Utils extends BasePage {
     getRandomEmail() {
         return this.getRandomString(12)+'@gmail.com';;
     }
-
     getRandomString(characterLength) {
         return randomstring.generate(characterLength);
     }
