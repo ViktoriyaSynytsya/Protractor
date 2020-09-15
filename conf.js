@@ -10,7 +10,9 @@ exports.config = {
   framework: 'jasmine',
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: //['./specs/login_successful_spec.js'],
-  ['./specs/unsuccessful_login_spec.js'],
+  ['./specs/registration_spec.js'],
+ // ['./test_random.js'],
+
   jasmineNodeOpts: {
     defaultTimeoutInterval: 90000
   },
@@ -30,7 +32,19 @@ exports.config = {
   },
   params: {
     a: "viktoriasynytsa@gmail.com",
-    b: "1234567890"
+    password: "1234567890",
+    firstName: "Viktoriya",
+    lastName: "Synytsya",
+    firstNameAdd: "Viktoriya2",
+    lastNameAdd: "Synytsya2",
+    address: "Demnyanska St.",
+    city: "Lviv",
+    state: "Hawaii",
+    zipcode: "23456",
+    country: "United States",
+    mobPhone: "380677543321",
+    alias: "Naukova St."
+
   }
 }
 async function createScreenShotAllure() {
