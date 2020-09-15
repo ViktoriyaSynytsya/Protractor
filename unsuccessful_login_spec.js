@@ -15,7 +15,7 @@ describe('Protractor Demo App Login', function () {
         await loginPage.login("viktoriasynytsa@gmail.com", "");
         expect(await loginPage.getErrorMessage()).toEqual('Password is required.');
         //await browser.sleep(5000);
-        await utils.clearCredentials();
+        await loginPage.clearCredentials();
         await loginPage.login("viktoriasynytsa@gmail.com", "1234567");
         expect(await loginPage.getErrorMessage()).toEqual('Authentication failed.');
         await loginPage.clearCredentials();
