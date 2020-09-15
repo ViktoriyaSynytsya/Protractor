@@ -1,7 +1,7 @@
 
 let indexPage = require ("../page_objects/index_page")
 let loginPage = require ("../page_objects/login_page");
-let utils = require("./page_objects/Utils");
+
 
 //let myAccountPage = require ("../page_objects/myAccount_page")
 
