@@ -26,6 +26,7 @@ class LoginPage extends BasePage {
     async clearCredentials() {
         await this.getEmailInput().clear();
         await this.getPassInput().clear();
+        await this.getEmailInputForReg().clear();
     }
     async getErrorMessage() {
         return await this.getErrorElement().getText();
