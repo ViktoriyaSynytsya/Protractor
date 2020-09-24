@@ -12,6 +12,8 @@ let textloginLocator = by.css('#login_form>.page-subheading');
 let errorpassword = by.css('.alert li')
 let emailforRegLocator = by.css('#email_create')
 let createAnAccountLocator = by.css('#SubmitCreate')
+let erroremail = by.xpath("//li[contains(text(),'An account using this email')]")
+let ziperror = by.xpath("//li[contains(text(),'The Zip/Postal code')]")
 
 class LoginPage extends BasePage {
     async login(email, password) {
@@ -28,6 +30,12 @@ class LoginPage extends BasePage {
     async getErrorMessage() {
         return await this.getErrorElement().getText();
     }
+    async getErrorEmailForReg() {
+        return await this.getErrorEmailText().getText();
+    }
+    async getErrorZipForReg() {
+        return await this.getErrorZipText().getText();
+    }
     async sendEmail(email) {
         await allure.createStep(`Sign in ${email}`, async () => {
             await this.getEmailInputForReg().sendKeys(email);
@@ -41,7 +49,6 @@ class LoginPage extends BasePage {
         return await this.getTextforExpect().getText();
     }
 
-   
     getEmailInput() {
         return new Input(element(emailLocator), 'email');
     }
@@ -55,13 +62,19 @@ class LoginPage extends BasePage {
         return new TextView(element(textloginLocator), 'Login page base element');
     }
     getErrorElement() {
-        return new TextView(element(errorpassword), 'Error about unsuccessful login');
+        return new TextView(element(errorpassword), 'Error about unsuccessfull login');
     }
     getEmailInputForReg() {
         return new Input(element(emailforRegLocator), 'email');
     }
     getSubmButForRegInput() {
         return new Button(element(createAnAccountLocator), 'Submit');
+    }
+    getErrorEmailText() {
+        return new TextView(element(erroremail), 'Error about unsuccessfull email for reg');
+    }
+    getErrorZipText() {
+        return new TextView(element(ziperror), 'Error about unsuccessfull zip code for reg');
     }
   
 }
