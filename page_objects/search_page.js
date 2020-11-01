@@ -8,7 +8,6 @@ let searchIconLocator = by.css('[name=submit_search]')
 let firstResultLocator = by.xpath(`(//a[contains(@class, 'product-name')])[11]`)
 //let countResults = by.xpath(`//span[contains(text(),'7 results have been found')]`)
 let countResults = by.css(`.heading-counter`)
-let nameOfFirstProduct = by.css('div>h1')
 
 class Search extends BasePage {
     async search(text) {
@@ -17,15 +16,15 @@ class Search extends BasePage {
         await this.getSearchIcon().click();
         })()
     }
-    async getFirstResult() {
+    async clickFirstResult() {
         await this.getSearchFirstResult().click();
         }
      async getCountOfResults() {
         return this.getTextCountResults().getText();
         }
-     async getNameOfFirstProduct() {
-        return this.getTextOfFirstResult().getText();
-         }
+    //  async getNameOfFirstProduct() {
+    //     return this.getTextOfFirstResult().getText();
+    //      }
 
     getSearchInput() {
         return new Input(element(searchFieldLocator), 'search input');
@@ -39,9 +38,9 @@ class Search extends BasePage {
     getTextCountResults() {
         return new TextView(element(countResults), 'count of results');
         }
-    getTextOfFirstResult() {
-        return new TextView(element(nameOfFirstProduct), 'first of results');
-        }
+    // getTextOfFirstResult() {
+    //     return new TextView(element(nameOfFirstProduct), 'first of results');
+    //     }
 }
 
 module.exports = new Search();
