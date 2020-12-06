@@ -4,8 +4,6 @@ let TextView = require("../elements/text.view")
 
 let textloginLocator = by.css('.info-account');
 
-
-
 class MyAccountPage extends BasePage {
 
     getBaseElement() {
