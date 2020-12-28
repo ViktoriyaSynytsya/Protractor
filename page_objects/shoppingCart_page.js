@@ -9,7 +9,7 @@ let proceedToCheckoutBtnLocator1 = by.css('.button.btn.btn-default.standard-chec
 let proceedToCheckoutBtnLocator2 = by.css('button[name=processAddress]') 
 
 class ShoppingCartPage extends BasePage {
-    async menu(value) {
+    async proceedToCheckoutShoppingCart(value) {
         await allure.createStep(`Proceeding the order`, async () => {
         await this.getQuantityInput().sendKeys(value);
         await this.getProceedToCheckoutBtnElement1().click();

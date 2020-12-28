@@ -6,7 +6,7 @@ let pageHeadingPayLocator = by.css('.navigation_page') //getText "Your payment m
 let payByCheckBtnLocator = by.css('.cheque')
 
 class PaymentPage extends BasePage {
-    async payment() {
+    async paymentByCheck() {
         await allure.createStep(`Proceeding the order with payment`, async () => {
         await this.getPayByCheckBtn().click();
         })()

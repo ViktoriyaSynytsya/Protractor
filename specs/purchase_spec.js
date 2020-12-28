@@ -1,3 +1,4 @@
+
 let confirmationOrder_page = require("../page_objects/confirmationOrder_page");
 let indexPage = require ("../page_objects/index_page")
 let loginPage = require ("../page_objects/login_page");
@@ -22,24 +23,23 @@ describe('Protractor Demo App Login', function () {
 
 describe('Protractor Demo App Purchase', function () {
     it('successful purchase', async function () {
-        await menu_page.menu();
-        browser.sleep(35000)
+        await menu_page.navigateToTshirt();
         expect(await product_page.getTextOfProductPage()).toEqual('> Women>Tops>T-shirts');
         await product_page.getViewList();
-        expect(await product_page.getTextOfViewList());
-        await product_page.AddToCart();
-        expect(await product_page.getTextOfSuccessAddedProduct());
-        //browser.sleep(35000)
-        await product_page.ProceedToCheckout();
+        expect(await product_page.displayViewList()).toEqual(true);
+        await product_page.addToCart();
+        //await browser.wait(5000);
+        expect(await product_page.displayAddedProductTitle()).toEqual(true);
+        await product_page.proceedToCheckoutProductPage();
         expect(await shoppingCart_page.getTextShoppingCart()).toEqual('Your shopping cart');
         await shoppingCart_page.clearQuantityInput();
-        await shoppingCart_page.menu('3');
+        await shoppingCart_page.proceedToCheckoutShoppingCart('3');
         expect(await shipping_page.getTextShippingPage()).toEqual('SHIPPING');
-        await shipping_page.shipping();
+        await shipping_page.proceedToCheckoutShipping();
         expect(await payment_page.getTextPaymentMethodPage()).toEqual('Your payment method');
-        await payment_page.payment();
+        await payment_page.paymentByCheck();
         expect(await confirmationOrder_page.getTextCheckPayment()).toEqual('Check payment');
-        await confirmationOrder_page.confirm();
+        await confirmationOrder_page.confirmOrder();
         expect(await confirmationOrder_page.getTextConfirmOrder()).toEqual('Order confirmation');
     });
 });

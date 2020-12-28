@@ -14,22 +14,23 @@ class ProductPage extends BasePage {
     async getViewList() {
         await this.getViewListlement().click();
     }
-    async AddToCart() {
+    async addToCart() {
         await allure.createStep(`Add product to the cart`, async () => {
         await this.getAddtoCartBtnElement().click();
         })()
     }
-    async ProceedToCheckout() {
+    async proceedToCheckoutProductPage() {
         return await this.getProceedToCheckoutBtnElement().click();
     }
     async getTextOfProductPage() {
         return await this.getProductTitle().getText();
     }
-    async getTextOfViewList() {
-        return await this.getDescViewList().waitForVisible(10000);
+    async displayViewList() {
+        return await this.getDescViewList().isDisplayed();
     }
-    async getTextOfSuccessAddedProduct() {
-        return await this.getTitleAddedProductToCart().waitForPresence(10000);
+    async displayAddedProductTitle() {
+        await this.getTitleAddedProductToCart().waitForVisible();
+        return await this.getTitleAddedProductToCart().isDisplayed();
     }
     getViewListlement() {
         return  new Button(element(selectListLocator), 'View List');

@@ -7,7 +7,7 @@ let checkboxAgreeLocator = by.css('input[name=cgv]')
 let proceedToCheckoutBtnLocator3 = by.css('button[name=processCarrier]')  
 
 class ShippingPage extends BasePage {
-    async shipping() {
+    async proceedToCheckoutShipping() {
         await allure.createStep(`Proceeding the order with shipping`, async () => {
         await this.getCheckboxAgree().click();
         await this.getProceedToCheckoutBtnElement().click();

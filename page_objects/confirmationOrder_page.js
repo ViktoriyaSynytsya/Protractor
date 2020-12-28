@@ -8,7 +8,7 @@ let confirmOrderLocator = by.xpath('//*[.="I confirm my order"]')
 let pageHeadingOrderConfirmLocator = by.css('.navigation_page') //getText "Order confirmation"
 
 class ConfirmationOrderPage extends BasePage {
-    async confirm() {
+    async confirmOrder() {
         await allure.createStep(`Confirm the order`, async () => {
         await this.getConfirmOrderBtn().click();
         })()

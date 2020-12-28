@@ -5,7 +5,7 @@ let womenTabLocator = by.xpath('//a[.="Women"]')
 let tshirtChildLocator = by.xpath('(//a[.="T-shirts"])[1]')
 
 class MenuPage extends BasePage {
-    async menu() {
+    async navigateToTshirt() {
         await allure.createStep(`Navigate to T-shirts`, async () => {
         await this.getWomenBtnElement().mouseMove();
         await this.getTshirtBtnElement().click();
