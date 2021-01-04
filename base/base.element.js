@@ -17,6 +17,16 @@ class BaseElement {
     async waitForPresence(timeMs = 10000) {
         await browser.wait(this.expectedConditions.presenceOf(this.protractorElement), timeMs);
     }
+    async mouseMove() {
+        console.log(`Clicking on ${this.elementName}`);
+        await browser.actions().mouseMove(this.protractorElement).perform();  
+    }
+    async waitForVisible(timeMs = 10000) {
+        await browser.wait(this.expectedConditions.visibilityOf(this.protractorElement), timeMs);
+    }
+    async isDisplayed() {
+        return await this.protractorElement.isDisplayed();
+    }
 }
 
 module.exports = BaseElement

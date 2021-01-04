@@ -10,7 +10,7 @@ exports.config = {
   framework: 'jasmine',
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: //['./specs/login_successful_spec.js'],
-  ['./specs/search_spec.js'],
+  ['./specs/purchase_spec.js'],
 
   jasmineNodeOpts: {
     defaultTimeoutInterval: 90000
@@ -30,7 +30,7 @@ exports.config = {
     });
   },
   params: {
-    a:"viktoriasynytsa@gmail.com",
+    a:"viktoriasynytsa@eleks.com",
     password: "1234567890",
     firstName: "Viktoriya",
     lastName: "Synytsya",
