@@ -2,15 +2,16 @@ let BasePage = require("../base/base.page");
 let Button = require("../elements/button.element")
 
 let womenTabLocator = by.xpath('//a[.="Women"]')
-let productLocator = by.xpath('//a[.="Summer Dresses"])[1]')
+let productLocator = by.xpath('(//a[.="Summer Dresses"])[1]')
 let addtocart1Locator = by.xpath('(//span[contains(text(),"Add to cart")])[1]')
-let continueBtnLocator = by.xpath('.continue')
+let continueBtnLocator = by.css('.continue')
 let addtocart2Locator = by.xpath('(//span[contains(text(),"Add to cart")])[2]')
 let addtocart3Locator = by.xpath('(//span[contains(text(),"Add to cart")])[3]')
 
 class MenuPage extends BasePage {
     async navigateToProduct() {
         await allure.createStep(`Navigate to Summer Dress`, async () => {
+        await this.getWomenBtnElement().waitForVisible();
         await this.getWomenBtnElement().mouseMove();
         await this.getProductElement().click();
         })()
@@ -43,6 +44,7 @@ class MenuPage extends BasePage {
     getContinueShoppingElement() {
         return  new Button(element(continueBtnLocator), 'Continue Shopping');
     };
+
 
 }
 module.exports = new MenuPage();
