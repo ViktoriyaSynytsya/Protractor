@@ -9,7 +9,7 @@ describe('Protractor Demo Delete Items', function () {
         await MenuPage.navigateToProduct();
         await MenuPage.clickToAddProducts();
         await CartPage.hoverCart();
-        expect(await CartPage.expRezCheckoutBtn1()).toBeTrue();
+        expect(await CartPage.expRezCheckoutBtn1()).toBe(true);
         expect(await CartPage.expRezQtyItem1()).toEqual('3');
         await CartPage.removeFirstItem();
         expect(await CartPage.expRezCheckoutBtn1()).toBeTrue();
