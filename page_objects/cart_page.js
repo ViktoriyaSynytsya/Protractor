@@ -20,7 +20,7 @@ class CartPage extends BasePage {
     }
 
     async expRezCheckoutBtn1() {
-        //await this.getCheckoutBtnElement().waitForVisible();
+        //await this.getCheckoutBtnElement().waitForPresence();
         return await this.getCheckoutBtnElement().isDisplayed();
     }
 

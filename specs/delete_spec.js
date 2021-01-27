@@ -12,14 +12,14 @@ describe('Protractor Demo Delete Items', function () {
         expect(await CartPage.expRezCheckoutBtn1()).toBe(true);
         expect(await CartPage.expRezQtyItem1()).toEqual('3');
         await CartPage.removeFirstItem();
-        expect(await CartPage.expRezCheckoutBtn1()).toBeTrue();
-        expect(await CartPage.expRezQtyItem1()).toEqual('2');
-        await CartPage.clickCart();
-        expect(await CartPage.getTitle()).toEqual('Shopping-cart summary');
-        await CartPage.removeLastItem();
-        expect(await CartPage.expRezQtyItem1()).toEqual('1');
-        await MainPage.navigateToMainPage();
-        expect(await MainPage.expRezQtyItem()).toEqual('1');
+        expect(await CartPage.expRezCheckoutBtn2()).toBe(true);
+        // expect(await CartPage.expRezQtyItem1()).toEqual('2');
+        // await CartPage.clickCart();
+        // expect(await CartPage.getTitle()).toEqual('Shopping-cart summary');
+        // await CartPage.removeLastItem();
+        // expect(await CartPage.expRezQtyItem1()).toEqual('1');
+        // await MainPage.navigateToMainPage();
+        // expect(await MainPage.expRezQtyItem()).toEqual('1');
         
 
     });
