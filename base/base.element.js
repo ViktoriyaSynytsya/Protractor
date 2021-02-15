@@ -24,6 +24,9 @@ class BaseElement {
     async waitForVisible(timeMs = 10000) {
         await browser.wait(this.expectedConditions.visibilityOf(this.protractorElement), timeMs);
     }
+    async waitForInVisible(timeMs = 10000) {
+        await browser.wait(this.expectedConditions.invisibilityOf(this.protractorElement), timeMs);
+    }
     async isDisplayed() {
         return await this.protractorElement.isDisplayed();
     }

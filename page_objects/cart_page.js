@@ -1,41 +1,42 @@
+const { browser } = require("protractor");
 let BasePage = require("../base/base.page");
 let Button = require("../elements/button.element");
-const TextView = require("../elements/text.view");
+let TextView = require("../elements/text.view");
 
-let cartLocator = by.css('.shopping_cart')
-let checkoutBtnLocator = by.css('#button_order_cart')
+let cartLocator = by.css('.shopping_cart>a')
+let checkoutBtnLocator = by.css('#button_order_cart') 
+let totalLocator = by.xpath('//span[contains(text(),"Total")]')
 let qtyItemsInCartLocator1 = by.xpath('(//div/a/span)[1]')
 let removeFirstLocator = by.xpath('(//span/a)[1]')
-let shoppingCartSummaryLocator = by.xpath('//h1[contains(text(),"Shopping-cart summary")]')
-let removeLastLocator = by.xpath('(//span/a)[2]')
-
-
-
+let shoppingCartSummaryLocator = by.css('.navigation_page')
+let removeLastLocator = by.xpath('(//span/a)[1]')
 
 class CartPage extends BasePage {
     async hoverCart() {
         await allure.createStep(`Hover over the cart`, async () => {
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(element(cartLocator)), 10000, 'timeout');
+        await this.getShoppingCartElement().waitForVisible();
         await this.getShoppingCartElement().mouseMove();
         })()
     }
-
     async expRezCheckoutBtn1() {
-        //await this.getCheckoutBtnElement().waitForPresence();
+        await this.getCheckoutBtnElement().waitForVisible();
+        //return await this.getCheckoutBtnElement().getText();
         return await this.getCheckoutBtnElement().isDisplayed();
     }
-
+    async expTotal() {
+        await this.getTotalElement().waitForPresence();
+        return await this.getTotalElement();
+    }
     async expRezQtyItem1() {
-        //await this.getCheckoutBtnElement().waitForVisible();
+        await this.getCheckoutBtnElement().waitForVisible();
         return await this.getQtyItem1Element().getText();
     }
     async removeFirstItem() {
         await allure.createStep(`Remove first item from the cart`, async () => {
         await this.getRemove1Element().click();
+        await this.getRemove1Element().waitForInVisible();
         })()
-    }
-    async expRezCheckoutBtn2() {
-        //await this.getCheckoutBtnElement().waitForVisible();
-        return await this.getCheckoutBtnElement().isDisplayed();
     }
     async clickCart() {
         await allure.createStep(`Click the cart`, async () => {
@@ -53,14 +54,18 @@ class CartPage extends BasePage {
     async removeLastItem() {
         await allure.createStep(`Remove last item from the cart`, async () => {
         await this.getRemove2Element().click();
+        await this.getRemove2Element().waitForInVisible();
         })()
     }
-
+    
 getShoppingCartElement() {
     return new Button(element(cartLocator), 'Cart');
 };
 getCheckoutBtnElement() {
     return new Button(element(checkoutBtnLocator), 'Checkout button in cart pop up');
+};
+getTotalElement() {
+    return new TextView(element(totalLocator), 'Total in cart pop up');
 };
 getQtyItem1Element() {
     return new TextView(element(qtyItemsInCartLocator1), 'Quantity of items in cart pop up 1');

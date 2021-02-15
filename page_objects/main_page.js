@@ -11,12 +11,10 @@ class MainPage extends BasePage {
         await this.getLogoElement().click();
         })()
     }
-
     async expRezQtyItem() {
         //await this.getCheckoutBtnElement().waitForVisible();
         return await this.getQtyItemElement().getText();
     }
-
     getLogoElement() {
         return  new Button(element(mainLogoLocator), 'Main Logo');
     }
