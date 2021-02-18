@@ -3,10 +3,10 @@ let Button = require("../elements/button.element")
 
 let womenTabLocator = by.xpath('//a[.="Women"]')
 let productLocator = by.xpath('(//a[.="Summer Dresses"])[1]')
-let addtocart1Locator = by.xpath('(//span[contains(text(),"Add to cart")])[1]')
+let addtocartLocator = by.xpath('(//a[contains(@class, "ajax_add_to_cart")])[INDEX]')
+//let addtocartLocator = by.css('(.product_list>li:nth-of-type(index))')
 let continueBtnLocator = by.css('.continue span')
-let addtocart2Locator = by.xpath('(//span[contains(text(),"Add to cart")])[2]')
-let addtocart3Locator = by.xpath('(//span[contains(text(),"Add to cart")])[3]')
+
 
 class MenuPage extends BasePage {
     async navigateToProduct() {
@@ -17,14 +17,14 @@ class MenuPage extends BasePage {
         })()
     }
     async clickToAddProducts() {
-        await this.getAddProduct1Element().click();
+        await this.getAddProductElement(1).click();
         await this.getContinueShoppingElement().waitForVisible();
         await this.getContinueShoppingElement().click();
-        await this.getAddProduct2Element().click();
+        await this.getAddProductElement(2).click();
         await this.getContinueShoppingElement().waitForVisible();
         await this.getContinueShoppingElement().click();
-        await this.getAddProduct3Element().waitForVisible();
-        await this.getAddProduct3Element().click();
+        await this.getAddProductElement(3).waitForVisible();
+        await this.getAddProductElement(3).click();
         await this.getContinueShoppingElement().waitForVisible();
         await this.getContinueShoppingElement().click();
         await this.getContinueShoppingElement().waitForInVisible();
@@ -36,14 +36,14 @@ class MenuPage extends BasePage {
     getProductElement() {
         return  new Button(element(productLocator), 'Summer Dress Tab');
     };
-    getAddProduct1Element() {
-        return  new Button(element(addtocart1Locator), 'Summer Dress1');
-    };
-    getAddProduct2Element() {
-        return  new Button(element(addtocart2Locator), 'Summer Dress2');
-    };
-    getAddProduct3Element() {
-        return  new Button(element(addtocart3Locator), 'Summer Dress3');
+    getAddProductElement(index) {
+        let finalLocator =  Object.assign({}, addtocartLocator);
+        console.log('test'+ JSON.stringify(finalLocator));
+        finalLocator.value = finalLocator.value.replace("INDEX", index);
+        console.log('test'+ JSON.stringify(finalLocator));
+        console.log('test2'+ JSON.stringify(addtocartLocator));
+        return  new Button(element(finalLocator), `Summer Dress #${index}`);
+
     };
     getContinueShoppingElement() {
         return  new Button(element(continueBtnLocator), 'Continue Shopping');
