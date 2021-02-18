@@ -10,6 +10,8 @@
         "jasmine": "^3.5.0",
         "jasmine-allure-reporter": "^1.0.2",
         "protractor": "^7.0.0",
+        "random-js": "^2.1.0",
+        "randomstring": "^1.1.5",
         "serverless-dynamodb-local": "^0.2.30"
     },
     "scripts": {
