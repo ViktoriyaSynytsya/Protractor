@@ -4,7 +4,6 @@ let Button = require("../elements/button.element")
 let mainLogoLocator = by.css('.logo.img-responsive')
 let qtyItemLocator = by.xpath('(//div/a/span)[1]')
 
-
 class MainPage extends BasePage {
     async navigateToMainPage() {
         await allure.createStep(`Navigate to Main Page`, async () => {
@@ -12,7 +11,6 @@ class MainPage extends BasePage {
         })()
     }
     async expRezQtyItem() {
-        //await this.getCheckoutBtnElement().waitForVisible();
         return await this.getQtyItemElement().getText();
     }
     getLogoElement() {

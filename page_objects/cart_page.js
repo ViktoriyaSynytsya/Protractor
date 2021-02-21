@@ -1,4 +1,3 @@
-const { browser } = require("protractor");
 let BasePage = require("../base/base.page");
 let Button = require("../elements/button.element");
 let TextView = require("../elements/text.view");
@@ -14,14 +13,12 @@ let removeLastLocator = by.xpath('(//span/a)[1]')
 class CartPage extends BasePage {
     async hoverCart() {
         await allure.createStep(`Hover over the cart`, async () => {
-        //browser.wait(protractor.ExpectedConditions.visibilityOf(element(cartLocator)), 10000, 'timeout');
         await this.getShoppingCartElement().waitForVisible();
         await this.getShoppingCartElement().mouseMove();
         })()
     }
     async expRezCheckoutBtn1() {
         await this.getCheckoutBtnElement().waitForVisible();
-        //return await this.getCheckoutBtnElement().getText();
         return await this.getCheckoutBtnElement().isDisplayed();
     }
     async expTotal() {
@@ -44,11 +41,9 @@ class CartPage extends BasePage {
         })()
     }
     async getTextShopCarSummary() {
-        //await this.getCheckoutBtnElement().waitForVisible();
         return await this.getShopCartSummaryElement().getText();
     }
     async expRezQtyItem3() {
-        //await this.getCheckoutBtnElement().waitForVisible();
         return await this.getQtyItem1Element().getText();
     }
     async removeLastItem() {

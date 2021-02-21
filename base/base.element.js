@@ -1,5 +1,3 @@
-const { browser } = require("protractor");
-
 class BaseElement {
     constructor(protractorElement, nameElement) {
         this.protractorElement = protractorElement;
