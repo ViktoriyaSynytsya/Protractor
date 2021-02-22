@@ -10,8 +10,7 @@ exports.config = {
   framework: 'jasmine',
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: //['./specs/login_successful_spec.js'],
-  ['./specs/purchase_spec.js'],
-
+  ['./specs/delete_spec.js'],
   jasmineNodeOpts: {
     defaultTimeoutInterval: 90000
   },

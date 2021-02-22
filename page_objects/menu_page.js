@@ -20,9 +20,3 @@ class MenuPage extends BasePage {
 }
 module.exports = new MenuPage();
 
-
-
-
-
-
-
